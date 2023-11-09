@@ -1,0 +1,251 @@
+<div class="container">
+  <h4 class="mb-3">Datos del paciente</h4>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="needs-validation">
+    <div class="row g-3">
+      <div class="row g-3">
+        <div class="col-sm-6" *ngIf="imagenURL">
+          <img
+            [src]="imagenURL"
+            alt="Imagen seleccionada"
+            id="foto"
+            class="image"
+            style="width: 100px; height: 100px"
+          />
+        </div>
+        <div class="col-sm-6" *ngIf="imagenURL2">
+          <img
+            [src]="imagenURL2"
+            alt="Imagen seleccionada"
+            id="foto"
+            class="image"
+            style="width: 100px; height: 100px"
+          />
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="pacienteNombre" class="form-label"
+          >Nombre del paciente:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="pacienteNombre"
+          placeholder=""
+          formControlName="pacienteNombre"
+        />
+        <div *ngIf="form.controls['pacienteNombre'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['pacienteNombre'].errors!['required'] &&
+              form.controls['pacienteNombre'].touched
+            "
+          >
+            Debe ingresar el nombre del paciente.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="pacienteApellido" class="form-label"
+          >Apellido del paciente:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="pacienteApellido"
+          placeholder=""
+          formControlName="pacienteApellido"
+        />
+        <div *ngIf="form.controls['pacienteApellido'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['pacienteApellido'].errors!['required'] &&
+              form.controls['pacienteApellido'].touched
+            "
+          >
+            Debe ingresar el apellido del paciente.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="pacienteEdad" class="form-label">Edad del paciente:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="pacienteEdad"
+          placeholder=""
+          formControlName="pacienteEdad"
+        />
+        <div *ngIf="form.controls['pacienteEdad'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['pacienteEdad'].errors!['required'] &&
+              form.controls['pacienteEdad'].errors!['required'] &&
+              form.controls['pacienteEdad'].touched
+            "
+            >Debe ingresar la edad del paciente.
+          </small>
+          <small
+            class="invalid"
+            *ngIf="form.controls['pacienteEdad'].errors['min']"
+          >
+            la edad del paciente debe ser mayor o igual a 1.
+          </small>
+          <small
+            class="invalid"
+            *ngIf="form.controls['pacienteEdad'].errors['max']"
+          >
+            la edad del paciente debe ser menor o igual a 1000.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="pacienteDni" class="form-label">Dni del paciente:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="pacienteDni"
+          placeholder=""
+          formControlName="pacienteDni"
+        />
+        <div *ngIf="form.controls['pacienteDni'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['pacienteDni'].errors!['required'] &&
+              form.controls['pacienteDni'].errors!['required'] &&
+              form.controls['pacienteDni'].touched
+            "
+            >Debe ingresar el dni del paciente.
+          </small>
+          <small
+            class="invalid"
+            *ngIf="form.controls['pacienteDni'].errors['min']"
+          >
+            el dni del paciente debe ser mayor o igual a 1.
+          </small>
+          <small
+            class="invalid"
+            *ngIf="form.controls['pacienteDni'].errors['max']"
+          >
+            el dni del paciente debe ser menor o igual a 1000.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="pacienteEmail" class="form-label"
+          >Correo electrónico:</label
+        >
+        <input
+          type="email"
+          id="pacienteEmail"
+          name="pacienteEmail"
+          class="form-control"
+          placeholder="ejemplo@ejemplo.com"
+          formControlName="pacienteEmail"
+          #emailInput
+        />
+        <div *ngIf="form.controls['pacienteEmail'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['pacienteEmail'].errors!['required'] &&
+              form.controls['pacienteEmail'].touched
+            "
+            >Debe ingresar un mail..</small
+          >
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['pacienteEmail'].errors!['email'] &&
+              form.controls['pacienteEmail'].touched
+            "
+            >Ingrese un email valido</small
+          >
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="pacienteClave" class="form-label">Contraseña:</label>
+        <input
+          type="password"
+          id="pacienteClave"
+          name="pacienteClave"
+          class="form-control"
+          placeholder="Ingrese su contraseña"
+          formControlName="pacienteClave"
+          #passwordInput
+        />
+        <div *ngIf="form.controls['pacienteClave'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['pacienteClave'].errors!['required'] &&
+              form.controls['pacienteClave'].touched
+            "
+            >Debe ingresar su contraseña..</small
+          >
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="pacienteObraSocial" class="form-label"
+          >Obra Social del paciente:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="pacienteObraSocial"
+          placeholder=""
+          formControlName="pacienteObraSocial"
+        />
+        <div *ngIf="form.controls['pacienteObraSocial'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['pacienteObraSocial'].errors!['required'] &&
+              form.controls['pacienteObraSocial'].touched
+            "
+          >
+            Debe ingresar la obra social del paciente.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6"></div>
+
+      <div class="col-sm-6">
+        <label for="fotoPaciente">1° Foto del paciente:</label>
+        <input
+          type="file"
+          id="fotoPaciente"
+          formControlName="fotoPaciente"
+          (change)="onImageSelected($event, 1)"
+          (click)="resetImageInput(1)"
+        />
+      </div>
+
+      <div class="col-sm-6">
+        <label for="fotoPaciente2">2° Foto del paciente:</label>
+        <input
+          type="file"
+          id="fotoPaciente2"
+          formControlName="fotoPaciente2"
+          (change)="onImageSelected($event, 2)"
+          (click)="resetImageInput(2)"
+        />
+      </div>
+    </div>
+    <hr class="my-4" />
+    <button class="w-100 btn btn-primary btn-lg" type="submit">
+      Registrar paciente
+    </button>
+  </form>
+</div>

@@ -1,0 +1,210 @@
+<div class="container mt-3">
+    <h4 class="mb-3">Datos del admin</h4>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" >
+      <div class="row g-3">
+        <div class="row g-3">
+          <div class="col-sm-6" *ngIf="imagenURL">
+            <img
+              [src]="imagenURL"
+              alt="Imagen seleccionada"
+              id="foto"
+              class="image"
+              style="width: 100px; height: 100px"
+            />
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="adminNombre" class="form-label"
+            >Nombre del admin:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="adminNombre"
+            placeholder=""
+            formControlName="adminNombre"
+          />
+          <div *ngIf="form.controls['adminNombre'].errors != null">
+            <small
+              class="invalid"
+              *ngIf="
+                form.controls['adminNombre'].errors!['required'] &&
+                form.controls['adminNombre'].touched
+              "
+            >
+              Debe ingresar el nombre del admin.
+            </small>
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="adminApellido" class="form-label"
+            >Apellido del admin:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="adminApellido"
+            placeholder=""
+            formControlName="adminApellido"
+          />
+          <div *ngIf="form.controls['adminApellido'].errors != null">
+            <small
+              class="invalid"
+              *ngIf="
+                form.controls['adminApellido'].errors!['required'] &&
+                form.controls['adminApellido'].touched
+              "
+            >
+              Debe ingresar el apellido del admin.
+            </small>
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="adminEdad" class="form-label"
+            >Edad del admin:</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="adminEdad"
+            placeholder=""
+            formControlName="adminEdad"
+          />
+          <div *ngIf="form.controls['adminEdad'].errors != null">
+            <small
+              class="invalid"
+              *ngIf="
+                form.controls['adminEdad'].errors!['required'] &&
+                form.controls['adminEdad'].errors!['required'] &&
+                form.controls['adminEdad'].touched
+              "
+              >Debe ingresar la edad del admin.
+            </small>
+            <small
+              class="invalid"
+              *ngIf="form.controls['adminEdad'].errors['min']"
+            >
+              la edad del admin debe ser mayor o igual a 1.
+            </small>
+            <small
+              class="invalid"
+              *ngIf="form.controls['adminEdad'].errors['max']"
+            >
+              la edad del admin debe ser menor o igual a 1000.
+            </small>
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="adminDni" class="form-label"
+            >Dni del admin:</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="adminDni"
+            placeholder=""
+            formControlName="adminDni"
+          />
+          <div *ngIf="form.controls['adminDni'].errors != null">
+            <small
+              class="invalid"
+              *ngIf="
+                form.controls['adminDni'].errors!['required'] &&
+                form.controls['adminDni'].errors!['required'] &&
+                form.controls['adminDni'].touched
+              "
+              >Debe ingresar el dni del admin.
+            </small>
+            <small
+              class="invalid"
+              *ngIf="form.controls['adminDni'].errors['min']"
+            >
+              el dni del admin debe ser mayor o igual a 1.
+            </small>
+            <small
+              class="invalid"
+              *ngIf="form.controls['adminDni'].errors['max']"
+            >
+              el dni del admin debe ser menor o igual a 1000.
+            </small>
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="adminEmail" class="form-label"
+            >Correo electrónico:</label
+          >
+          <input
+            type="email"
+            id="adminEmail"
+            name="adminEmail"
+            class="form-control"
+            placeholder="ejemplo@ejemplo.com"
+            formControlName="adminEmail"
+            #emailInput
+          />
+          <div *ngIf="form.controls['adminEmail'].errors != null">
+            <small
+              class="invalid"
+              *ngIf="
+                form.controls['adminEmail'].errors!['required'] &&
+                form.controls['adminEmail'].touched
+              "
+              >Debe ingresar un mail..</small
+            >
+            <small
+              class="invalid"
+              *ngIf="
+                form.controls['adminEmail'].errors!['email'] &&
+                form.controls['adminEmail'].touched
+              "
+              >Ingrese un email valido</small
+            >
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="adminClave" class="form-label">Contraseña:</label>
+          <input
+            type="password"
+            id="adminClave"
+            name="adminClave"
+            class="form-control"
+            placeholder="Ingrese su contraseña"
+            formControlName="adminClave"
+            #passwordInput
+          />
+          <div *ngIf="form.controls['adminClave'].errors != null">
+            <small
+              class="invalid"
+              *ngIf="
+                form.controls['adminClave'].errors!['required'] &&
+                form.controls['adminClave'].touched
+              "
+              >Debe ingresar su contraseña..</small
+            >
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <label for="fotoadmin">1° Foto del admin:</label>
+          <input
+            type="file"
+            id="fotoadmin"
+            formControlName="fotoadmin"
+            (change)="onImageSelected($event)"
+            (click)="resetImageInput()"
+          />
+        </div>
+      </div>
+      <hr class="my-4" />
+      <button class="w-100 btn btn-primary btn-lg" type="submit">
+        Registrar admin
+      </button>
+    </form>
+  </div>
+  

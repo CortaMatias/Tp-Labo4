@@ -1,0 +1,28 @@
+<main class="contenedor">
+  <div class="registro-buttons">
+    <button
+      class="btn btn-primary rounded-0 "
+      (click)="mostrarRegistroPaciente()"
+      [class.active]="mostrarRegistroPacientes"
+    >
+      <img src="../assets/paciente.jpg" alt="" width="150" height="130"  />
+    </button>
+    <button
+      class="btn btn-primary rounded-0 "
+      (click)="mostrarRegistroEspecialista()"
+      [class.active]="mostrarRegistroEspecialistas"
+    >
+      <img src="../assets/medico.jpg" alt="" width="150" height="130" />
+    </button>
+  </div>
+
+  <div class="registro-form">
+    <div *ngIf="mostrarRegistroPacientes">
+      <app-register-paciente></app-register-paciente>
+    </div>
+
+    <div *ngIf="mostrarRegistroEspecialistas">
+      <app-register-especialista></app-register-especialista>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tp-labo": {
+      "hosting": {
+        "Tp-labo4": [
+          "tp-labo"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tp-labo"
+  }
+}

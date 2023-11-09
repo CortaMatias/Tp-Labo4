@@ -1,0 +1,54 @@
+<nav
+  class="navbar navbar-light navbar-expand-lg"
+  style="background-color: #e3f2fd"
+>
+  <div class="m-1">
+    <img
+      class="navbar-brand"
+      src="../assets/logoClinica.png"
+      alt=""
+      width="90"
+      height="50"
+    />
+  </div>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarText"
+    aria-controls="navbarText"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home (actual)</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="m-1">
+    <a id="userProfile" class="navbar-brand" *ngIf="loggedUser | async as user">
+      <img
+        *ngIf="user.photoURL"
+        [src]="user.photoURL"
+        width="30"
+        height="30"
+        class="d-inline-block align-top"
+        alt=""
+      />
+      {{ user.email }}
+    </a>
+    <button
+      class="btn btn-sm btn-outline-secondary"
+      type="button"
+      (click)="logOut()"
+    >
+      cerrar sesión
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "Tp-labo4",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

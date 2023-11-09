@@ -1,0 +1,243 @@
+<div class="container">
+  <h4 class="mb-3">Datos del especialista</h4>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="needs-validation">
+    <div class="row g-3">
+      <div class="col-sm-6">
+        <label for="especialistaNombre" class="form-label"
+          >Nombre del especialista:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="especialistaNombre"
+          placeholder=""
+          formControlName="especialistaNombre"
+        />
+        <div *ngIf="form.controls['especialistaNombre'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['especialistaNombre'].errors!['required'] &&
+              form.controls['especialistaNombre'].touched
+            "
+          >
+            Debe ingresar el nombre del especialista.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="especialistaApellido" class="form-label"
+          >Apellido del especialista:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="especialistaApellido"
+          placeholder=""
+          formControlName="especialistaApellido"
+        />
+        <div *ngIf="form.controls['especialistaApellido'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['especialistaApellido'].errors!['required'] &&
+              form.controls['especialistaApellido'].touched
+            "
+          >
+            Debe ingresar el apellido del especialista.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="especialistaEdad" class="form-label"
+          >Edad del especialista:</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="especialistaEdad"
+          placeholder=""
+          formControlName="especialistaEdad"
+        />
+        <div *ngIf="form.controls['especialistaEdad'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['especialistaEdad'].errors!['required'] &&
+              form.controls['especialistaEdad'].errors!['required'] &&
+              form.controls['especialistaEdad'].touched
+            "
+            >Debe ingresar la edad del especialista.
+          </small>
+          <small
+            class="invalid"
+            *ngIf="form.controls['especialistaEdad'].errors['min']"
+          >
+            la edad del especialista debe ser mayor o igual a 1.
+          </small>
+          <small
+            class="invalid"
+            *ngIf="form.controls['especialistaEdad'].errors['max']"
+          >
+            la edad del especialista debe ser menor o igual a 1000.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="especialistaDni" class="form-label"
+          >Dni del especialista:</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="especialistaDni"
+          placeholder=""
+          formControlName="especialistaDni"
+        />
+        <div *ngIf="form.controls['especialistaDni'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['especialistaDni'].errors!['required'] &&
+              form.controls['especialistaDni'].errors!['required'] &&
+              form.controls['especialistaDni'].touched
+            "
+            >Debe ingresar el dni del especialista.
+          </small>
+          <small
+            class="invalid"
+            *ngIf="form.controls['especialistaDni'].errors['min']"
+          >
+            el dni del especialista debe ser mayor o igual a 1.
+          </small>
+          <small
+            class="invalid"
+            *ngIf="form.controls['especialistaDni'].errors['max']"
+          >
+            el dni del especialista debe ser menor o igual a 1000.
+          </small>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="especialistaEmail" class="form-label"
+          >Correo electrónico:</label
+        >
+        <input
+          type="email"
+          id="especialistaEmail"
+          name="especialistaEmail"
+          class="form-control"
+          placeholder="ejemplo@ejemplo.com"
+          formControlName="especialistaEmail"
+          #emailInput
+        />
+        <div *ngIf="form.controls['especialistaEmail'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['especialistaEmail'].errors!['required'] &&
+              form.controls['especialistaEmail'].touched
+            "
+            >Debe ingresar un mail..</small
+          >
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['especialistaEmail'].errors!['email'] &&
+              form.controls['especialistaEmail'].touched
+            "
+            >Ingrese un email valido</small
+          >
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="especialistaClave" class="form-label">Contraseña:</label>
+        <input
+          type="password"
+          id="especialistaClave"
+          name="especialistaClave"
+          class="form-control"
+          placeholder="Ingrese su contraseña"
+          formControlName="especialistaClave"
+          #passwordInput
+        />
+        <div *ngIf="form.controls['especialistaClave'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['especialistaClave'].errors!['required'] &&
+              form.controls['especialistaClave'].touched
+            "
+            >Debe ingresar su contraseña..</small
+          >
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="especialistaEspecialidad" class="form-label"
+          >Especialidades:</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="especialistaEspecialidad"
+          placeholder="Buscar o agregar especialidad"
+          formControlName="especialistaEspecialidad"
+        />
+        <div *ngIf="form.controls['especialistaEspecialidad'].errors != null">
+          <small
+            class="invalid"
+            *ngIf="
+              form.controls['especialistaEspecialidad'].errors!['required'] &&
+              form.controls['especialistaEspecialidad'].touched
+            "
+          >
+            Debe seleccionar o agregar una especialidad.
+          </small>
+        </div>
+        
+        <button  type="button" class="btn btn-primary m-2" (click)="agregarEspecialidad()">Agregar</button>
+      </div>
+
+      <div class="col-sm-6">
+        <ul class="list-group mt-3">
+          <li *ngFor="let especialidad of especialidades" class="list-group-item">
+            <button  type="button" (click)="seleccionarEspecialidad(especialidad)" class="btn btn-link">
+              {{ especialidad.nombre }}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6">
+        <label for="fotoespecialista">1° Foto del especialista:</label>
+        <input
+          type="file"
+          id="fotoespecialista"
+          formControlName="fotoespecialista"
+          (change)="onImageSelected($event)"
+          (click)="resetImageInput()"
+        />
+      </div>
+
+      <div class="col-sm-6" *ngIf="imagenURL">
+        <img
+          [src]="imagenURL"
+          alt="Imagen seleccionada"
+          id="foto"
+          class="image"
+          style="width: 100px; height: 100px"
+        />
+      </div>
+    </div>
+    <hr class="my-4" />
+    <button class="w-100 btn btn-primary btn-lg" type="submit">
+      Registrar especialista
+    </button>
+  </form>
+</div>
