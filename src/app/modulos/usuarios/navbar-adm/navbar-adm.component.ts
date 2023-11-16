@@ -21,6 +21,8 @@ export class NavbarAdmComponent {
       if (result.isConfirmed) {
         // Si el usuario confirma, cerramos la sesión
         this.authService.logout();
+        localStorage.removeItem('logueado');
+        localStorage.removeItem('admin');   
         this.router.navigate(['/bienvenida']);
       }
     });

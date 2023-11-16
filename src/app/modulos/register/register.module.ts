@@ -6,19 +6,23 @@ import { RegisterEspecialistaComponent } from 'src/app/modulos/register/register
 import { RegisterPacienteComponent } from 'src/app/modulos/register/register-paciente/register-paciente.component';
 import { RegisterAdministradorComponent } from 'src/app/modulos/register/register-administrador/register-administrador.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+import { MiDirectivaColorDirective } from 'src/app/mi-directiva-color.directive';
 @NgModule({
   declarations: [
     RegisterComponent,
     RegisterEspecialistaComponent,
     RegisterPacienteComponent,
     RegisterAdministradorComponent,
+    MiDirectivaColorDirective,
   ],
   imports: [
     CommonModule,
     RegisterRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
 })
 export class RegisterModule {}

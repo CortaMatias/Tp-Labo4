@@ -5,6 +5,7 @@ import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { AdmistradorComponent } from './admistrador/admistrador.component';
 import { AdmistrarEspecialistassComponent } from './admistrar-especialistass/admistrar-especialistass.component';
 import { NavbarAdmComponent } from './navbar-adm/navbar-adm.component';
+import { AdmistrarTurnosComponent } from './admistrar-turnos/admistrar-turnos.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { NavbarAdmComponent } from './navbar-adm/navbar-adm.component';
     AdmistradorComponent,
     AdmistrarEspecialistassComponent,
     NavbarAdmComponent,
+    AdmistrarTurnosComponent,
   ],
   imports: [
     CommonModule,

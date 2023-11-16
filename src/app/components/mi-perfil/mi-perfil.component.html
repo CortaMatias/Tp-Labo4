@@ -1,0 +1,117 @@
+<div *ngIf="usuario" class="">
+  <div *ngIf="identidad === 'admin'">
+    <div class="card m-5" style="width: 32rem">
+      <img
+        class="card-img-top"
+        src="{{ usuario.foto1 }}"
+        alt="Foto de perfil"
+        height="300"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ usuario.nombre }} {{ usuario.apellido }}</h5>
+        <p class="card-text">DNI: {{ usuario.dni }}</p>
+        <p class="card-text">Edad: {{ usuario.edad }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="identidad === 'paciente'">
+    <div class="card m-5" style="width: 32rem">
+      <div class="row">
+        <img
+          class="col-md-6 rounded-10"
+          src="{{ usuario.foto1 }}"
+          alt="Foto de perfil"
+          height="300"
+          width="300"
+        />
+        <img
+          class="col-md-6"
+          src="{{ usuario.foto2 }}"
+          alt="Foto de perfil"
+          height="300"
+          width="300"
+        />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ usuario.nombre }} {{ usuario.apellido }}</h5>
+        <p class="card-text">DNI: {{ usuario.dni }}</p>
+        <p class="card-text">Edad: {{ usuario.edad }}</p>
+        <p class="card-text">Obra Social: {{ usuario.obraSocial }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="identidad === 'especialista'" class="row" style="width: 80rem">
+    <div class="card m-5" style="width: 30rem">
+      <img
+        class="card-img-top"
+        src="{{ usuario.foto1 }}"
+        alt="Foto de perfil"
+        height="300"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ usuario.nombre }} {{ usuario.apellido }}</h5>
+        <p class="card-text">DNI: {{ usuario.dni }}</p>
+        <p class="card-text">Edad: {{ usuario.edad }}</p>
+        <p class="card-text">Especialidades:</p>
+        <ul>
+          <li *ngFor="let especialidad of usuario.especialidades">
+            {{ especialidad }}
+            <p>
+              Horario: {{ horario[usuario.especialidadesMap[especialidad]] }}
+            </p>
+          </li>
+        </ul>
+        <button
+          (click)="mostrarHorarios = !mostrarHorarios"
+          class="btn btn-primary"
+        >
+          Actualizar horarios
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="mostrarHorarios" class="card m-5" style="width: 30rem">
+      <div class="card-body">
+        <h3 class="card-title">Actualizar horarios</h3>
+        <div *ngFor="let especialidad of usuario.especialidades">
+          <h5>{{ especialidad }}</h5>
+          <p>
+            Horario actual:
+            {{ horario[usuario.especialidadesMap[especialidad]] }}
+          </p>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="{{ especialidad }}"
+              [(ngModel)]="horario[usuario.especialidadesMap[especialidad]]"
+              value="mañana"
+            />
+            <label class="form-check-label">Mañana</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="{{ especialidad }}"
+              [(ngModel)]="horario[usuario.especialidadesMap[especialidad]]"
+              value="tarde"
+            />
+            <label class="form-check-label">Tarde</label>
+          </div>
+          <p></p>
+        </div>
+        <p
+          class="btn btn-warning"
+          *ngIf="!sonIguales(horario, estadoInicialHorarios)"
+        >
+          Tienes cambios sin guardar
+        </p>
+        <p></p>
+        <button  class="btn btn-primary" (click)="guardar()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

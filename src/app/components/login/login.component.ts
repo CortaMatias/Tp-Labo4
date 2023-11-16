@@ -102,7 +102,7 @@ export class LoginComponent {
         await this.authService.logout();
         break;
       case 3:
-        email = 'nummeicoimugo-3030@yopmail.com';
+        email = 'xeffebraxeipra-1343@yopmail.com';
         password = '123456';
         let esp1 = await this.authService.login({ email, password });
         let esp1bd = await this.authService.getEspecialistasByUid(
@@ -136,7 +136,7 @@ export class LoginComponent {
         break;
 
          case 6:
-        email = 'taluffeumeitei-2563@yopmail.com';
+        email = 'hitreimmuquemmi-5851@yopmail.com';
         password = '123456';
         let esp2 = await this.authService.login({ email, password });
         let esp2bd = await this.authService.getEspecialistasByUid(
@@ -159,7 +159,7 @@ export class LoginComponent {
         this.form.controls['password'].setValue('123456');
         break;
       case 3:
-        this.form.controls['email'].setValue('nummeicoimugo-3030@yopmail.com');
+        this.form.controls['email'].setValue('xeffebraxeipra-1343@yopmail.com');
         this.form.controls['password'].setValue('123456');
         break;
         case 4:
@@ -172,7 +172,7 @@ export class LoginComponent {
             break;
             
             case 6:
-              this.form.controls['email'].setValue('taluffeumeitei-2563@yopmail.com');
+              this.form.controls['email'].setValue("hitreimmuquemmi-5851@yopmail.com");
               this.form.controls['password'].setValue('123456');
               break;  
     }
@@ -181,6 +181,7 @@ export class LoginComponent {
     if (this.form.valid) {
       try {
         let user = await this.authService.login(this.form.value);
+        localStorage.setItem('logueado', user.user.uid);
         await this.verificarMails(user);
       } catch (error: any) {
         this.checkError = true;

@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     HomeComponent,
     NavbarComponent,
+    MiPerfilComponent,
   ],
   imports: [
     BrowserModule,

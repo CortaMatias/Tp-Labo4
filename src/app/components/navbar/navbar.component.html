@@ -23,11 +23,35 @@
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarText">
+  <div *ngIf="esPaciente" class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/home">Home (actual)</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/turnos/options">Mis turnos</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/turnos/solicitar-turno"
+          >Solicitar Turno</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/perfil">Mi perfil</a>
+      </li>   
+    </ul>
+  </div>
+  <div *ngIf="!esPaciente" class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home (actual)</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/turnos/options">Mis turnos</a>
+      </li>     
+      <li class="nav-item active">
+        <a class="nav-link" href="/home/perfil">Mi perfil</a>
+      </li>    
     </ul>
   </div>
 

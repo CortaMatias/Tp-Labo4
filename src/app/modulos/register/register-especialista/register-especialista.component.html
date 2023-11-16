@@ -117,7 +117,7 @@
             class="invalid"
             *ngIf="form.controls['especialistaDni'].errors['max']"
           >
-            el dni del especialista debe ser menor o igual a 1000000.
+            el dni del especialista debe ser menor o igual a 1000.
           </small>
         </div>
       </div>
@@ -182,36 +182,46 @@
         <label for="especialistaEspecialidad" class="form-label"
           >Especialidades:</label
         >
-        <input
-          type="text"
-          class="form-control"
-          id="especialistaEspecialidad"
-          placeholder="Buscar o agregar especialidad"
-          formControlName="especialistaEspecialidad"
-        />
-        <div *ngIf="form.controls['especialistaEspecialidad'].errors != null">
-          <small
-            class="invalid"
-            *ngIf="
-              form.controls['especialistaEspecialidad'].errors!['required'] &&
-              form.controls['especialistaEspecialidad'].touched
-            "
-          >
-            Debe seleccionar o agregar una especialidad.
-          </small>
-        </div>
-        
-        <button  type="button" class="btn btn-primary m-2" (click)="agregarEspecialidad()">Agregar</button>
-      </div>
-
-      <div class="col-sm-6">
-        <ul class="list-group mt-3">
-          <li *ngFor="let especialidad of especialidades" class="list-group-item">
-            <button  type="button" (click)="seleccionarEspecialidad(especialidad)" class="btn btn-link">
+        <div class="d-flex flex-column">
+          <div *ngFor="let especialidad of especialidades" class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              [id]="'especialidadCheckbox_' + especialidad.uid"
+              [formControlName]="'especialidad_' + especialidad.uid"
+            />
+            <label
+              class="form-check-label"
+              [for]="'especialidadCheckbox_' + especialidad.uid"
+            >
               {{ especialidad.nombre }}
-            </button>
-          </li>
-        </ul>
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="otraEspecialidadCheckbox"
+              formControlName="agregarOtraEspecialidad"
+            />
+            <label class="form-check-label" for="otraEspecialidadCheckbox"
+              >Agregar Otra:</label
+            >
+            <input
+              *ngIf="form.controls['agregarOtraEspecialidad'].value"
+              type="text"
+              class="form-control"
+              formControlName="OtraEspecialidad"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary m-2"
+            (click)="agregarEspecialidad()"
+          >
+            Agregar
+          </button>
+        </div>
       </div>
 
       <div class="col-sm-6">
@@ -236,6 +246,7 @@
       </div>
     </div>
     <hr class="my-4" />
+    <re-captcha (resolved)="resolved($event)" formControlName="recaptchaReactive" siteKey="6LdYHgspAAAAAPVxSSPCpsGIT3QAgCb9M72CbOEB"></re-captcha>
     <button class="w-100 btn btn-primary btn-lg" type="submit">
       Registrar especialista
     </button>

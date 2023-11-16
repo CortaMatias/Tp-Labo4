@@ -1,17 +1,17 @@
 <nav
-  class="navbar navbar-light navbar-expand-lg "
+  class="navbar navbar-light navbar-expand-lg"
   style="background-color: #e3f2fd"
 >
-<div class="m-1">
+  <div class="m-1">
     <img
-    class="navbar-brand"
-    src="../assets/logoClinica.png"
-    alt=""
-    width="90"
-    height="50"
-  />
-</div>
-  
+      class="navbar-brand"
+      src="../assets/logoClinica.png"
+      alt=""
+      width="90"
+      height="50"
+    />
+  </div>
+
   <button
     class="navbar-toggler"
     type="button"
@@ -29,15 +29,36 @@
         <a class="nav-link" href="/homeAdmin">Home (actual)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/homeAdmin/admin/registerAdmin">agregar admins</a>
+        <a class="nav-link" href="/homeAdmin/admin/registerAdmin"
+          >agregar admins</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/homeAdmin/admin/administrar-especialistas">administrar especialistas</a>
+        <a class="nav-link" href="/homeAdmin/admin/administrar-especialistas"
+          >administrar especialistas</a
+        >
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/homeAdmin/admin/administrar-turnos"
+          >administrar turnos</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/homeAdmin/admin/solicitar-turno"
+          >solicitar turno</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/homeAdmin/admin/perfil">Mi perfil</a>
+      </li>   
     </ul>
   </div>
   <div class="m-1">
-    <button class="btn btn-sm btn-outline-secondary" type="button"  (click)="logOut()">
+    <button
+      class="btn btn-sm btn-outline-secondary"
+      type="button"
+      (click)="logOut()"
+    >
       cerrar sesión
     </button>
   </div>

@@ -51,6 +51,7 @@ export class RegisterPacienteComponent {
       ]),
       fotoPaciente: new FormControl(''),
       fotoPaciente2: new FormControl(''),
+      recaptchaReactive: new FormControl(null, Validators.required),
     });
   }
 
@@ -146,4 +147,8 @@ export class RegisterPacienteComponent {
       });
     }
   }
+
+  resolved(captchaResponse: string) {
+  }
+
 }

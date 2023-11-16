@@ -1,45 +1,112 @@
 <div class="container">
-  <h2>Especialistas</h2>
+  <h2>Especialistas Pendientes de Aprobación</h2>
   <div class="row">
-    <div *ngFor="let especialista of especialistas" class="col-md-4">
-      <div class="card mb-3">
-        <img
-          [src]="especialista.foto1"
-          class="card-img-top"
-          alt="Especialista"
-          height="350"
-        />
-        <div class="card-body">
-          <h5 class="card-title">
-            {{ especialista.nombre }} {{ especialista.apellido }}
-          </h5>
-          <p class="card-text">Especialidad: {{ especialista.especialidad }}</p>
-          <p class="card-text">Edad: {{ especialista.edad }}</p>
-          <p class="card-text">DNI: {{ especialista.dni }}</p>
+    <ng-container *ngFor="let especialista of especialistas">
+      <div class="col-md-4" *ngIf="especialista.verificado === 'false'">
+        <div class="card mb-3">
+          <img
+            [src]="especialista.foto1"
+            class="card-img-top"
+            alt="Especialista"
+            height="350"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ especialista.nombre }} {{ especialista.apellido }}
+            </h5>
+            <p class="card-text">Especialidades:</p>
+            <ul>
+              <li *ngFor="let especialidad of especialista.especialidades">
+                {{ especialidad }}
+              </li>
+            </ul>
 
-          <div *ngIf="especialista.verificado === 'null'">
-            <p class="btn btn-danger">Especialista Rechazado</p>
-          </div>
-          <div *ngIf="especialista.verificado === 'true'">
-            <p class="btn btn-success">Especialista Aceptado</p>
-          </div>
-          <div *ngIf="especialista.verificado === 'false'">
-            <p class="card-text">Especialista Pendiente de Aprobación</p>
-            <button
-              (click)="aceptarEspecialista(especialista)"
-              class="btn btn-success"
-            >
-              Aceptar
-            </button>
-            <button
-              (click)="rechazarEspecialista(especialista)"
-              class="btn btn-danger m-2"
-            >
-              Rechazar
-            </button>
+            <p class="card-text">Edad: {{ especialista.edad }}</p>
+            <p class="card-text">DNI: {{ especialista.dni }}</p>
+
+            <div *ngIf="especialista.verificado === 'false'">
+              <p class="card-text">Especialista Pendiente de Aprobación</p>
+              <button
+                (click)="aceptarEspecialista(especialista)"
+                class="btn btn-success"
+              >
+                Aceptar
+              </button>
+              <button
+                (click)="rechazarEspecialista(especialista)"
+                class="btn btn-danger m-2"
+              >
+                Rechazar
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ng-container>
+  </div>
+
+  <h2>Especialistas Aprobados</h2>
+  <div class="row">
+    <ng-container *ngFor="let especialista of especialistas">
+      <div class="col-md-4" *ngIf="especialista.verificado === 'true'">
+        <div class="card mb-3">
+          <img
+            [src]="especialista.foto1"
+            class="card-img-top"
+            alt="Especialista"
+            height="350"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ especialista.nombre }} {{ especialista.apellido }}
+            </h5>
+            <p class="card-text">Especialidades:</p>
+            <ul>
+              <li *ngFor="let especialidad of especialista.especialidades">
+                {{ especialidad }}
+              </li>
+            </ul>
+
+            <p class="card-text">Edad: {{ especialista.edad }}</p>
+            <p class="card-text">DNI: {{ especialista.dni }}</p>
+
+            <p class="btn btn-success">Especialista Aceptado</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <h2>Especialistas Rechazados</h2>
+  <div class="row">
+    <ng-container *ngFor="let especialista of especialistas">
+      <div class="col-md-4" *ngIf="especialista.verificado === 'null'">
+        <div class="card mb-3">
+          <img
+            [src]="especialista.foto1"
+            class="card-img-top"
+            alt="Especialista"
+            height="350"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ especialista.nombre }} {{ especialista.apellido }}
+            </h5>
+            <p class="card-text">Especialidades:</p>
+            <ul>
+              <li *ngFor="let especialidad of especialista.especialidades">
+                {{ especialidad }}
+              </li>
+            </ul>
+
+            <p class="card-text">Edad: {{ especialista.edad }}</p>
+            <p class="card-text">DNI: {{ especialista.dni }}</p>
+            <div *ngIf="especialista.verificado === 'null'">
+              <p class="btn btn-danger">Especialista Rechazado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>
