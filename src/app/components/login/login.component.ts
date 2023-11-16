@@ -38,6 +38,9 @@ export class LoginComponent {
     await this.cargarFotos(1);
     await this.cargarFotos(2);
     await this.cargarFotos(3);
+    await this.cargarFotos(4);
+    await this.cargarFotos(5);
+    await this.cargarFotos(6);
     this.loadingImages = false;
   }
 
@@ -108,6 +111,41 @@ export class LoginComponent {
         this.fotoE1 = esp1bd?.foto1;
         await this.authService.logout();
         break;
+        case 4:
+          email = 'grabrelufrena-8680@yopmail.com';
+          password = '123456';
+          let paciente1 = await this.authService.login({ email, password });
+          let paciente1bd = await this.authService.getPacientesByUid(
+            paciente1.user.uid
+          );
+
+          this.foto2 = paciente1bd?.foto1;
+
+          await this.authService.logout();
+        break;
+
+        case 5:
+          email = 'jiduyojeubu-7873@yopmail.com';
+          password = '123456';
+          let paciente2 = await this.authService.login({ email, password });
+          let paciente2bd = await this.authService.getPacientesByUid(
+            paciente2.user.uid
+          );      
+          this.foto3 = paciente2bd?.foto1;
+          await this.authService.logout();
+        break;
+
+         case 6:
+        email = 'taluffeumeitei-2563@yopmail.com';
+        password = '123456';
+        let esp2 = await this.authService.login({ email, password });
+        let esp2bd = await this.authService.getEspecialistasByUid(
+          esp2.user.uid
+        );
+        this.fotoE2 = esp2bd?.foto1;
+        await this.authService.logout();
+        break;
+        
     }
   }
   accesoRapido(number: number) {
@@ -124,6 +162,19 @@ export class LoginComponent {
         this.form.controls['email'].setValue('nummeicoimugo-3030@yopmail.com');
         this.form.controls['password'].setValue('123456');
         break;
+        case 4:
+          this.form.controls['email'].setValue('grabrelufrena-8680@yopmail.com');
+          this.form.controls['password'].setValue('123456');
+          break;
+          case 5:
+            this.form.controls['email'].setValue('jiduyojeubu-7873@yopmail.com');
+            this.form.controls['password'].setValue('123456');
+            break;
+            
+            case 6:
+              this.form.controls['email'].setValue('taluffeumeitei-2563@yopmail.com');
+              this.form.controls['password'].setValue('123456');
+              break;  
     }
   }
   async onSubmit() {

@@ -6,76 +6,8 @@
         <p>Cargando usuarios...</p>
       </div>
 
-      <div *ngIf="!loadingImages" class="row form">
-
-        <div class="col-md-4">
-          <div class="card rounded-0 mt-3" style="width: 9rem">
-            <img
-              [src]="fotoAdmin"
-              class="card-img-top rounded-0"
-              alt="Imagen seleccionada"
-              style="width: auto; height: 100px"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Admin</h5>
-              <button
-                class="btn btn-primary"
-                type="button"
-                (click)="accesoRapido(1)"
-              >
-                Acceder
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card rounded-0 mt-3 " style="width: 9rem">
-            <img
-              [src]="foto1"
-              class="card-img-top rounded-0"
-              alt="Imagen seleccionada"
-              style="width: auto; height: 100px"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Paciente</h5>
-              <button
-                class="btn btn-primary"
-                type="button"
-                (click)="accesoRapido(2)"
-              >
-                Acceder
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card rounded-0 mt-3" style="width: 9rem">
-            <img
-              [src]="fotoE1"
-              class="card-img-top rounded-0"
-              alt="Imagen seleccionada"
-              style="width: auto; height: 100px"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Especialista</h5>
-              <button
-                class="btn btn-primary"
-                type="button"
-                (click)="accesoRapido(3)"
-              >
-                Acceder
-              </button>
-            </div>
-          </div>
-        </div>
-
-       
-      </div>
-
-  <div class="row mt-3">
-    <div class="">
+  <div class="row mt-3 ">
+    <div class="col" style="width: 33rem;">
       <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form-signin">
         <img
           class="mb-4"
@@ -140,5 +72,147 @@
         </button>
       </form>
     </div>
+
+    <div *ngIf="!loadingImages" class="col">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card rounded-0 mt-3" style="width: 10rem">
+            <img
+              [src]="fotoE1"
+              class="card-img-top rounded-0"
+              alt="Imagen seleccionada"
+              style="width: auto; height: 100px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Especialista 1</h5>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="accesoRapido(3)"
+              >
+                Acceder
+              </button>
+            </div>
+          </div>
+        </div>       
+        <div class="col-md-4">
+          <div class="card rounded-0 mt-3" style="width: 10rem">
+            <img
+              [src]="fotoAdmin"
+              class="card-img-top rounded-0"
+              alt="Imagen seleccionada"
+              style="width: auto; height: 100px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Admin</h5>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="accesoRapido(1)"
+              >
+                Acceder
+              </button>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-md-4">
+          <div class="card rounded-0 mt-3 " style="width: 10rem">
+            <img
+              [src]="foto1"
+              class="card-img-top rounded-0"
+              alt="Imagen seleccionada"
+              style="width: auto; height: 100px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Paciente 1</h5>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="accesoRapido(2)"
+              >
+                Acceder
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card rounded-0 mt-3 " style="width: 10rem">
+            <img
+              [src]="foto2"
+              class="card-img-top rounded-0"
+              alt="Imagen seleccionada"
+              style="width: auto; height: 100px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Paciente 2</h5>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="accesoRapido(4)"
+              >
+                Acceder
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card rounded-0 mt-3 " style="width: 10rem">
+            <img
+              [src]="foto3"
+              class="card-img-top rounded-0"
+              alt="Imagen seleccionada"
+              style="width: auto; height: 100px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Paciente 3</h5>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="accesoRapido(5)"
+              >
+                Acceder
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card rounded-0 mt-3 " style="width: 10rem">
+            <img
+              [src]="fotoE2"
+              class="card-img-top rounded-0"
+              alt="Imagen seleccionada"
+              style="width: auto; height: 100px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Especialista 2</h5>
+              <button
+                class="btn btn-primary"
+                type="button"
+                (click)="accesoRapido(6)"
+              >
+                Acceder
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      
+
+
+  
+      
+    </div>
   </div>
+
+
 </main>
+
+
